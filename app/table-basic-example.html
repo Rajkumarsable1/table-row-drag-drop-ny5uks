@@ -1,0 +1,42 @@
+<table
+  mat-table
+  #table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8"
+  cdkDropList
+  [cdkDropListData]="dataSource"
+  (cdkDropListDropped)="dropTable($event)"
+>
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="pariority">
+    <th mat-header-cell *matHeaderCellDef>pariority</th>
+    <td mat-cell *matCellDef="let element">{{element.pariority}}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="partAcc">
+    <th mat-header-cell *matHeaderCellDef>Participeting Acc</th>
+    <td mat-cell *matCellDef="let element">{{element.partAcc}}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="contraAcc">
+    <th mat-header-cell *matHeaderCellDef>contra Acc</th>
+    <td mat-cell *matCellDef="let element">{{element.contraAcc}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: displayedColumns;"
+    cdkDrag
+    [cdkDragData]="row"
+  ></tr>
+</table>
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
